@@ -19,8 +19,8 @@ next.onclick = function(){
 	else {
 	i=0;
 	};
-	img.src=imgs[i];
-	console.log(i);
+	changeImg(i);
+
 };
 
 prev.onclick = function(){
@@ -30,6 +30,9 @@ prev.onclick = function(){
 	else {
 	i=imgs.length-1;
 	};
-	img.src=imgs[i];
-	console.log(i);
+	changeImg(i);
 };
+
+var changeImg = function(picNum){
+	img.src = imgs[picNum];
+}
