@@ -13,26 +13,31 @@ img.src=imgs[i];
 
 
 next.onclick = function(){
-	if (i<imgs.length-1){
-	i++
-	}
-	else {
-	i=0;
-	};
-	changeImg(i);
-
+	var dir = true;
+	changeImg(dir);
 };
 
 prev.onclick = function(){
-	if (i>0){
-	i--
-	}
-	else {
-	i=imgs.length-1;
-	};
-	changeImg(i);
+	var dir = false;
+	changeImg(dir);
 };
 
-var changeImg = function(picNum){
-	img.src = imgs[picNum];
-}
+var changeImg = function(state){
+	if (state){
+		if (i<imgs.length-1){
+			i++
+		}
+		else {
+			i=0;
+		};
+	}
+	else {
+		if (i>0){
+			i--
+		}
+		else {
+			i=imgs.length-1;
+		};
+	};
+	img.src = imgs[i];
+};
