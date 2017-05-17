@@ -2,9 +2,9 @@ var btn = document.getElementsByTagName('li');
 var playlist = ["first.mp3","second.mp3","third.mp3","fourth.mp3","fifth.mp3"];
 var state = "middle";
 
-for (i = 0; i<btn.length; i++){
+for (i = 0; i < btn.length; i++){
 var music = btn[i].getElementsByTagName("audio")[0];
-btn[i].song =playlist[i];
+btn[i].song = playlist[i];
 		btn[i].onclick = function(){
 		this.getElementsByTagName("audio")[0].src = "sounds\\"+state+"\\"+this.song;
 		this.getElementsByTagName("audio")[0].play();
@@ -30,7 +30,7 @@ function changeState(event){
 };
 
 function changeMiddle(event) {
-	state="middle";
+	state = "middle";
 	if (document.getElementsByClassName('set')[0].classList.contains("higher")){
 		document.getElementsByClassName('set')[0].classList.remove("higher");	
 		document.getElementsByClassName('set')[0].classList.add("middle");
@@ -41,7 +41,9 @@ function changeMiddle(event) {
 	};	
 };
 
-function changeCode(text){
+function changeCode(newState){
+	changeMiddle();
+	state = newState;
 	document.getElementsByClassName('set')[0].classList.remove("middle");
-	document.getElementsByClassName('set')[0].classList.add(state)
+	document.getElementsByClassName('set')[0].classList.add(state);
 };

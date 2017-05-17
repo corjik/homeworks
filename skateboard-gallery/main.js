@@ -22,5 +22,5 @@ function removeCurrent(){
 function setPic(href,text) {
 	var pic = document.getElementById('view');
 	pic.src = href;
-	document.getElementsByTagName('h2')[0].innerHTML = text;
+	document.getElementsByTagName('h4')[0].innerHTML = text;
 }
