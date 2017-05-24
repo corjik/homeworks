@@ -1,10 +1,5 @@
-var menu=document.getElementsByClassName("wrapper-dropdown");
-var menuAr=Array.from(menu);
-console.log(menuAr);
+var menu = document.getElementsByClassName("wrapper-dropdown");
 
-
-
-
-menuAr[0].onclick = function () {
-	menuAr[0].classList.toggle("active");
-}
+menu[0].onclick = function() {
+	menu[0].classList.toggle("active");
+};
