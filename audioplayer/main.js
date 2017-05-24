@@ -9,12 +9,12 @@ var title = document.getElementsByClassName('title')[0];
 var playlist = ["mp3\\LA Chill Tour.mp3","mp3\\LA Fusion Jam.mp3","mp3\\This is it band.mp3"];
 var songNames = ["LA Chill Tour","LA Fusion Jam", "This is it band"];
 var i = 0; //номер песни
+var isPlay;
 if (playIcon.style.display !== "none"){
 	isPlay == false;
 	}
 	else{
 	isPlay == true;
-	};
 };
 
 pBtn.onclick = function() {
