@@ -4,7 +4,6 @@ const btn = document.querySelectorAll('button');
 const outputs = document.querySelectorAll('output');
 const zip = document.getElementsByName('zip')[0];
 
-
 for (let btns of btn) {
   if (btns.innerHTML === "Отправить сообщение") {
     sendBtn = btns;
@@ -21,7 +20,7 @@ for (let elem of formInput) {
 formText.addEventListener('input', checkState);
 sendBtn.addEventListener('click', changeState);
 editBtn.addEventListener('click', changeState);
-zip.addEventListener('keypress', checkNum);
+zip.addEventListener('input', checkNum);
 
 function checkState() {
   var counter = 0;
@@ -62,8 +61,5 @@ function changeText() {
 };
 
 function checkNum (event) {
-  var chr = event.keyCode;
-  if (chr < 48 || chr > 58) {
-    event.preventDefault();
-  }
+  this.value = this.value.replace(/\D/g, "");
 };
