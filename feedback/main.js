@@ -2,9 +2,10 @@ const formInput = document.querySelectorAll('.contentform input');
 const formText = document.querySelector('textarea');
 const btn = document.querySelectorAll('button');
 const outputs = document.querySelectorAll('output');
-document.getElementsByName('zip')[0].setAttribute('type','number');
+const zip = document.getElementsByName('zip')[0];
 
-for (btns of btn) {
+
+for (let btns of btn) {
   if (btns.innerHTML === "Отправить сообщение") {
     sendBtn = btns;
   }
@@ -13,19 +14,18 @@ for (btns of btn) {
   };
 };
 
-for (elem of formInput) {
+for (let elem of formInput) {
   elem.addEventListener('input', checkState);
 };
+
 formText.addEventListener('input', checkState);
 sendBtn.addEventListener('click', changeState);
 editBtn.addEventListener('click', changeState);
-
-
-
+zip.addEventListener('keypress', checkNum);
 
 function checkState() {
   var counter = 0;
-  for (elem of formInput) {
+  for (let elem of formInput) {
     if(elem.value){
       counter++;
     };
@@ -51,12 +51,19 @@ function changeState(event) {
 };
 
 function changeText() {
-  for (output of outputs) {
-    for (input of formInput) {
+  for (let output of outputs) {
+    for (let input of formInput) {
       if(output.id === input.name) {
         output.innerHTML = input.value;
       };
     };
   };
   document.getElementById('message').innerHTML = formText.value;
+};
+
+function checkNum (event) {
+  var chr = event.keyCode;
+  if (chr < 48 || chr > 58) {
+    event.preventDefault();
+  }
 };
