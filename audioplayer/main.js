@@ -31,46 +31,20 @@ pBtn.onclick = function() {
 sBtn.onclick = function(){
 	music.pause();
 	music.currentTime = 0;
-	playIcon.style.display = "block";
-	pauseIcon.style.display = "none";
-	isPlay = false;
+	iconSwitch();
 	playAnimate();
 };
 
 next.onclick = function() {
 	i++;
-	if (i == playlist.length) {
-		i = 0;
-	};
-
-	if (isPlay) {
-		title.setAttribute("title", songNames[i]);
-		music.src = playlist[i];
-		music.setAttribute("autoplay","");	
-	}
-	else {
-		title.setAttribute("title", songNames[i]);	
-		music.src = playlist[i];
-		music.removeAttribute("autoplay","");	
-	};
+	if (i == playlist.length) { i = 0};
+	autoplay(i);
 };
-
 
 prev.onclick = function() {
 	i-- ;
-	console.log()
-	if (i < 0) { i = playlist.length};
-
-	if (isPlay) {
-		title.setAttribute("title", songNames[i]);
-		music.src = playlist[i];
-		music.setAttribute("autoplay","");	
-	}
-	else {
-		title.setAttribute("title", songNames[i]);	
-		music.src = playlist[i];
-		music.removeAttribute("autoplay","");	
-	};
+	if (i < 0) { i = playlist.length-1};
+	autoplay(i);
 };
 
 
@@ -85,9 +59,23 @@ var iconSwitch = function() {
 		isPlay = true;
 	}
 	else {
-		pauseIcon.style.display = "none";
 		playIcon.style.display = "block"
+		pauseIcon.style.display = "none";
 		isPlay = false;
 	};
 };
+
+var autoplay = function(i){
+	if (isPlay) {
+		title.setAttribute("title", songNames[i]);
+		music.src = playlist[i];
+		music.setAttribute("autoplay","");	
+	}
+	else {
+		title.setAttribute("title", songNames[i]);	
+		music.src = playlist[i];
+		music.removeAttribute("autoplay","");	
+	};	
+};
+
 

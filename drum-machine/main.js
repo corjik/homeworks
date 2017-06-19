@@ -1,8 +1,8 @@
-var btn = document.getElementsByTagName('li');
+var btns = document.getElementsByTagName('li');
 
-for (var btns of btn) {
-	btns.onclick = function() {
-		var music = this.getElementsByTagName('audio');
-		music[music.length-1].play();
+for (var btn of btns) {
+	btn.onclick = function() {
+		var music = this.getElementsByTagName('audio')[0];
+		music.play();
 	};
 };
