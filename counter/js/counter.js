@@ -12,3 +12,5 @@ function getMessage () {
   document.querySelector('.counter').textContent = data.connections;
   document.querySelector('.errors').textContent = data.errors;
 };
+
+

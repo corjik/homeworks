@@ -67,15 +67,13 @@ var iconSwitch = function() {
 
 var autoplay = function(i){
 	if (isPlay) {
-		title.setAttribute("title", songNames[i]);
-		music.src = playlist[i];
 		music.setAttribute("autoplay","");	
 	}
 	else {
-		title.setAttribute("title", songNames[i]);	
-		music.src = playlist[i];
 		music.removeAttribute("autoplay","");	
 	};	
+	title.setAttribute("title", songNames[i]);	
+	music.src = playlist[i];
 };
 
 
